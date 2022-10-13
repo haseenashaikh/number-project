@@ -6,20 +6,35 @@ pipeline{
                 sh'''
                 pwd
                 rm -rf *
-                git clone 
+                git clone https://github.com/haseenashaikh/number-project.git
                 '''
             }
         }
-        stage('hello'){
+        stage('maven1'){
             steps{
                 sh'''
+                mvn compile
                 '''
             }
         }
-        stage('today date'){
+        stage('maven2'){
             steps{
                 sh'''
-                echo "hello today $(date)"
+                mvn test
+                '''
+            }
+        }
+        stage('maven3'){
+            steps{
+                sh'''
+                mvn clean
+                '''
+            }
+        }
+        stage('maven4'){
+            steps{
+                sh'''
+                mvn install package
                 '''
             }
         }
