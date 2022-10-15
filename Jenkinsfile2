@@ -13,6 +13,7 @@ pipeline{
         stage('maven1'){
             steps{
                 sh'''
+                cd number-project
                 mvn compile
                 '''
             }
@@ -20,6 +21,7 @@ pipeline{
         stage('maven2'){
             steps{
                 sh'''
+                cd number-project
                 mvn test
                 '''
             }
@@ -27,6 +29,7 @@ pipeline{
         stage('maven3'){
             steps{
                 sh'''
+                cd number-project
                 mvn clean
                 '''
             }
@@ -34,6 +37,7 @@ pipeline{
         stage('maven4'){
             steps{
                 sh'''
+                cd number-project
                 mvn install package
                 '''
             }
